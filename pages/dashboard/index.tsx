@@ -2,14 +2,49 @@ import React, { useEffect } from 'react'
 
 import { Box, Grid, Typography } from '@mui/material';
 import { getCookie } from 'cookies-next'
-import BasicTable from '@/components/Table';
+import BasicTable from '@/components/table/Table';
 import OutlinedCard from '@/components/Card';
-import CollapsibleTable from '@/components/Table';
+import CollapsibleTable from '@/components/table/Table';
 import { months } from '../../constants';
 import Layout from '../../layouts/Layout';
 import axios from 'axios';
 
 const drawerWidth = 240
+
+
+const tableCell: string[] = [
+    'Cliente',
+    'Cancelación',
+    'Fecha',
+    'Tipo',
+    'Total',
+    'Folio',
+    'Pago'
+]
+
+const tableData: any = [
+    {
+        cliente: 'Cliente 1',
+        cancelacion: 'Cancelación 1',
+        fecha: 'Fecha 1',
+        tipo: 'Tipo 1',
+        total: '300',
+        folio: 1,
+        pago: 222,
+        history: [
+            {
+                date: '2020-01-05',
+                customerId: '11091700',
+                amount: 3,
+            },
+            {
+                date: '2020-01-02',
+                customerId: 'Anonymous',
+                amount: 1,
+            },
+        ],
+    }
+]
 const Dashboard = () => {
 
     useEffect(() => {
@@ -86,7 +121,7 @@ const Dashboard = () => {
                             justifyContent: 'center',
                         }}
                     >
-                        <CollapsibleTable />
+                        <CollapsibleTable key='current-month' tableCells={tableCell} tableData={tableData} />
                     </Box>
                 </Grid>
             </Grid>
