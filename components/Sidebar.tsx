@@ -22,6 +22,7 @@ import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import ReceiptRoundedIcon from '@mui/icons-material/ReceiptRounded';
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
+import { useRouter } from 'next/router';
 
 
 const drawerWidth = 240;
@@ -34,9 +35,10 @@ const categories = [
                 id: 'Facturas',
                 icon: <ReceiptRoundedIcon />,
                 active: true,
+                url: 'facturas'
             },
-            { id: 'Clientes', icon: <AccountBoxRoundedIcon /> },
-            { id: 'Productos', icon: <Inventory2RoundedIcon /> },
+            { id: 'Clientes', icon: <AccountBoxRoundedIcon />, url: 'clientes' },
+            { id: 'Productos', icon: <Inventory2RoundedIcon />, url: 'productos' },
             // { id: 'Hosting', icon: <PublicIcon /> },
             // { id: 'Functions', icon: <SettingsEthernetIcon /> },
             // // {
@@ -48,8 +50,8 @@ const categories = [
     {
         id: 'Configuracion',
         children: [
-            { id: 'Usuario', icon: <SettingsIcon /> },
-            { id: 'Cerrar sesion', icon: <TimerIcon /> },
+            { id: 'Usuario', icon: <SettingsIcon />, url: 'usuario' },
+            { id: 'Cerrar sesion', icon: <TimerIcon />, url: 'logout' },
             // { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
         ],
     },
@@ -72,18 +74,23 @@ const itemCategory = {
 
 export default function Sidebar(props: DrawerProps) {
     const { ...other } = props;
+    const router = useRouter();
+
+    const handleClick = (url: string) => {
+        router.push(`/${url}`);
+    }
 
     return (
         <Drawer variant="permanent" sx={{ width: drawerWidth }} {...other}>
             <List disablePadding>
                 <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
-                    Paperbase
+                    EM - Facturacion
                 </ListItem>
-                <ListItem sx={{ ...item, ...itemCategory }}>
-                    <ListItemIcon>
+                <ListItem sx={{ ...item, ...itemCategory }}  >
+                    <ListItemIcon onClick={() => handleClick('dashboard')} >
                         <HomeIcon />
                     </ListItemIcon>
-                    <ListItemText>Project Overview</ListItemText>
+                    <ListItemText>Home</ListItemText>
                 </ListItem>
                 {categories.map(({ id, children }) => (
                     // <Box key={id} sx={{ bgcolor: '#101F33' }}>
@@ -91,9 +98,9 @@ export default function Sidebar(props: DrawerProps) {
                         <ListItem sx={{ py: 2, px: 3 }}>
                             <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
                         </ListItem>
-                        {children.map(({ id: childId, icon, active }) => (
-                            <ListItem disablePadding key={childId}>
-                                <ListItemButton selected={active} sx={item}>
+                        {children.map(({ id: childId, icon, url }) => (
+                            <ListItem disablePadding key={childId} onClick={() => handleClick(url)}>
+                                <ListItemButton sx={item}>
                                     <ListItemIcon>{icon}</ListItemIcon>
                                     <ListItemText>{childId}</ListItemText>
                                 </ListItemButton>

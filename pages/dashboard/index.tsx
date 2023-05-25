@@ -1,71 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { Box, Grid, Typography } from '@mui/material';
-import { getCookie } from 'cookies-next'
-import BasicTable from '@/components/table/Table';
 import OutlinedCard from '@/components/Card';
 import CollapsibleTable from '@/components/table/Table';
 import { months } from '../../constants';
 import Layout from '../../layouts/Layout';
-import axios from 'axios';
-
 const drawerWidth = 240
-
-
-const tableCell: string[] = [
-    'Cliente',
-    'Cancelación',
-    'Fecha',
-    'Tipo',
-    'Total',
-    'Folio',
-    'Pago'
-]
-
-const tableData: any = [
-    {
-        cliente: 'Cliente 1',
-        cancelacion: 'Cancelación 1',
-        fecha: 'Fecha 1',
-        tipo: 'Tipo 1',
-        total: '300',
-        folio: 1,
-        pago: 222,
-        history: [
-            {
-                date: '2020-01-05',
-                customerId: '11091700',
-                amount: 3,
-            },
-            {
-                date: '2020-01-02',
-                customerId: 'Anonymous',
-                amount: 1,
-            },
-        ],
-    }
-]
 const Dashboard = () => {
-
-    useEffect(() => {
-        // console.log('useEffect', getCookie('factuToken'));
-        const token = getCookie('factuToken');
-
-        const fetchData = async () => {
-            const data = await axios({
-                method: 'GET',
-                url: `${process.env.NEXT_PUBLIC_API_URL}/invoice/current-month`,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            console.log(data.data);
-        }
-
-        fetchData();
-    }, [])
-
 
     return (
         <Layout title='Dashboard'>
@@ -101,7 +42,7 @@ const Dashboard = () => {
                     </Box>
                 </Grid>
 
-                <Grid item md={12}>
+                <Grid item md={12} mb={5}>
                     <Box
                         component='div'
                         sx={{
@@ -121,7 +62,8 @@ const Dashboard = () => {
                             justifyContent: 'center',
                         }}
                     >
-                        <CollapsibleTable key='current-month' tableCells={tableCell} tableData={tableData} />
+                        {/* <CollapsibleTable key='current-month' tableCells={tableCell} tableData={tableData} /> */}
+                        <CollapsibleTable />
                     </Box>
                 </Grid>
             </Grid>

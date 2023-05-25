@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -12,44 +12,50 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { TableProps } from './types';
+import { ItemI, TableProps, dataBody } from './types';
+import LongMenu from '../buttons/MenuButton';
+import Badge from '@mui/material/Badge';
+import { TablePagination } from '@mui/material';
+import { getCookie } from 'cookies-next';
+import axios from 'axios';
 
 function createData(
     cliente: string,
-    cancelacion: string,
     fecha: string,
     tipo: string,
     total: string,
     folio: number,
-    pago: string
+    pago: ReactElement,
+    actions: ReactElement,
+    status: string,
+    history: ItemI[] | undefined
 ) {
     return {
         cliente,
-        cancelacion,
         fecha,
         tipo,
         total,
         folio,
         pago,
-        history: [
-            {
-                date: '2020-01-05',
-                customerId: '11091700',
-                amount: 3,
-            },
-            {
-                date: '2020-01-02',
-                customerId: 'Anonymous',
-                amount: 1,
-            },
-        ],
+        actions,
+        status,
+        history
     };
 }
+
+const tableCells: string[] = [
+    'Cliente',
+    'Fecha',
+    'Tipo',
+    'Total',
+    'Folio',
+    'Pago',
+    'Status',
+]
 
 function Row(props: { row: ReturnType<typeof createData> }) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
-
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -65,40 +71,39 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                 <TableCell component="th" scope="row">
                     {row.cliente}
                 </TableCell>
-                <TableCell align="right">{row.cancelacion}</TableCell>
                 <TableCell align="right">{row.fecha}</TableCell>
                 <TableCell align="right">{row.tipo}</TableCell>
                 <TableCell align="right">{row.total}</TableCell>
                 <TableCell align="right">{row.folio}</TableCell>
                 <TableCell align="right">{row.pago}</TableCell>
+                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="right">{row.actions}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <Typography variant="h6" gutterBottom component="div">
-                                History
+                                Detalles
                             </Typography>
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Date</TableCell>
-                                        <TableCell>Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell>Clave producto</TableCell>
+                                        <TableCell>Nombre</TableCell>
+                                        <TableCell align="right">Cantidad</TableCell>
+                                        <TableCell align="right">Precio</TableCell>
+                                        <TableCell align="right">Total ($)</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
-                                            <TableCell component="th" scope="row">
-                                                {historyRow.date}
-                                            </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
-                                            <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.pago * 100) / 100}
-                                            </TableCell>
+                                    {row.history?.map((historyRow, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell component="th" scope="row">{historyRow.productKey}</TableCell>
+                                            <TableCell>{historyRow.product}</TableCell>
+                                            <TableCell align="right">{historyRow.quantity}</TableCell>
+                                            <TableCell align="right">{historyRow.price}</TableCell>
+                                            <TableCell align="right">{(historyRow.price * historyRow.quantity)}</TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -110,55 +115,91 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         </React.Fragment>
     );
 }
+const CollapsibleTable: FC = (): ReactElement => {
+    // const CollapsibleTable: FC<TableProps> = ({
+    //     tableCells,
+    //     tableData
+    // }): ReactElement => {
 
-// const rows = [
-//     createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-//     createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-//     createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-//     createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-//     createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-// ];
 
-const CollapsibleTable: FC<TableProps> = ({
-    tableCells,
-    tableData
-}): ReactElement => {
+    const [tableData, setTableData] = useState<dataBody[]>([])
+    const [count, setCount] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [page, setPage] = useState(0);
+
+    useEffect((): any => {
+        const token = getCookie('factuToken');
+        const fetchData = async () => {
+            const data = await axios({
+                method: 'GET',
+                url: `${process.env.NEXT_PUBLIC_API_URL}/invoice/current-month?page=${(page) + 1}&perPage=${rowsPerPage}`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            const { rows, count } = data.data
+            setTableData(rows)
+            setCount(count)
+        }
+        fetchData()
+    }, [page, rowsPerPage])
+
+    const handleChangePage = (event: unknown, newPage: number) => {
+        console.log(newPage + 1);
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.value);
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
     return (
         <TableContainer component={Paper} sx={{ width: '80%' }} >
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        {/* <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
                         {
                             tableCells.map((cell, index) => (
                                 <TableCell align={index === 0 ? 'left' : 'right'} key={index}>{cell}</TableCell>
                             ))
                         }
+                        <TableCell align='right' > Acciones </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {
-                        tableData.map(({ cancelacion, cliente, fecha, folio, pago, tipo, total, history }, index) => (
-                            // createData(cliente, cancelacion, fecha, tipo, total, folio, pago),
+                        tableData.map((data, index) => (
+                            //     // createData(cliente, cancelacion, fecha, tipo, total, folio, pago),
                             <Row key={index} row={{
-                                cliente,
-                                cancelacion,
-                                fecha,
-                                tipo,
-                                total: `$${total}`,
-                                folio,
-                                pago,
-                                history
+                                cliente: tableData[index].cliente,
+                                fecha: tableData[index].expidition_date.split(',')[0],
+                                tipo: tableData[index].type === 'I' ? 'Ingreso' : 'Egreso',
+                                total: `$${tableData[index].total}`,
+                                folio: tableData[index].folio_number,
+                                pago: tableData[index].payment_status === 'pending' ? <Badge color='warning' variant='dot' /> : <Badge color='success' variant='dot' />,
+                                status: tableData[index].cancellation_status === 'none' ? 'Activo' : tableData[index].cancellation_status,
+                                history: tableData[index].items,
+                                // actions: <LongMenu options={{ actions: ['1', '2'] }} />
+                                actions: <LongMenu url={tableData[index].url_files} />
                             }} />
                         ))
                     }
                 </TableBody>
             </Table>
+            <TablePagination
+                rowsPerPage={rowsPerPage}
+                component="div"
+                rowsPerPageOptions={[10, 20, 30, 40, 50]}
+                count={count}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                page={page}
+                labelRowsPerPage='Elementos por pagina'
+            />
         </TableContainer>
     );
 }
