@@ -1,0 +1,11 @@
+on:
+  push:
+    branches:
+      - ci-cd
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Testing
+        run: Echo "Testing"
