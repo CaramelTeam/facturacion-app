@@ -14,5 +14,5 @@ services:
     ports:
       - ${APP_PORT}:${APP_PORT}
 
-    env_file:
-      - .env.local
+    # env_file:
+    #   - .env.local
