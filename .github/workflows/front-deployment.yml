@@ -18,6 +18,5 @@ jobs:
 
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
-          echo $DOCKERHUB_USERNAME
           IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3001 docker compose -f docker-compose.yml build 
-          docker push $DOCKERHUB_USERNAME/factuapp-qa:qa-$IMAGE_TAG
+          docker push jimloza/factu-front:qa-$IMAGE_TAG
