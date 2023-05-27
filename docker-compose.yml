@@ -10,8 +10,9 @@ services:
 
 
     container_name: factu-qa-front
+    image: jimloza/factuapp-qa-front:${IMAGE_TAG}
     ports:
-      - "3001:3001"
+      - ${APP_PORT}:${APP_PORT}
 
     env_file:
       - .env.local

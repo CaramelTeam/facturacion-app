@@ -5,7 +5,18 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    name: Build image and push to DockerHub
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Testing
-        run: echo "Testing"
+      - uses: actions/checkout@v3
+      - name: Building image and pushing to DockerHub
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          IMAGE_TAG: ${{ github.sha }}
+
+        run: |
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
+          IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3000 docker compose -f docker-compose.prod.yml build
+          docker push $DOCKERHUB_USERNAME/factuapp-qa-frontend:$IMAGE_TAG
