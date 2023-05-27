@@ -10,7 +10,7 @@ services:
 
 
     container_name: factu-qa-front
-    image: jimloza/factu-front:latest
+    image: jimloza/factu-front:${IMAGE_TAG}
     ports:
       - "3001:3001"
 
