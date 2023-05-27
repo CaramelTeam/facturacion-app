@@ -5,31 +5,18 @@ on:
 
 jobs:
   build:
-    name: Build image
-    runs-on: ubuntu-latest
+    name: Build image and push to DockerHub
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2 # More information on this action can be found below in the 'AWS Credentials' section
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-          # role-to-assume: arn:aws:iam::123456789012:role/my-github-actions-role
-          # aws-acces
-
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and push docker image to Amazon ECR
+      - uses: actions/checkout@v3
+      - name: Building image and pushing to DockerHub
         env:
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: fact-api
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           IMAGE_TAG: ${{ github.sha }}
+
         run: |
-          IMAGE_TAG="$IMAGE_TAG" docker compose -f docker-compose.yml build 
-          docker push $DOCKERHUB_USERNAME/factu-front-qa:$IMAGE_TAG
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
+          IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3001 docker compose -f docker-compose.yml build 
+          docker push $DOCKERHUB_USERNAME/factuapp-qa:qa-$IMAGE_TAG
