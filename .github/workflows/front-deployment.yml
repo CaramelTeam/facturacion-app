@@ -31,5 +31,5 @@ jobs:
           REPOSITORY: fact-api
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          IMAGE_TAG="$IMAGE_TAG" docker-compose -f docker-compose.yml build 
+          IMAGE_TAG="$IMAGE_TAG" docker compose -f docker-compose.yml build 
           docker push $DOCKERHUB_USERNAME/factu-front-qa:$IMAGE_TAG
