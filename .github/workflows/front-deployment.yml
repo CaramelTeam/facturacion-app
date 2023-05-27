@@ -18,5 +18,5 @@ jobs:
 
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
-          IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3001 docker compose -f docker-compose.yml build --no-cache
+          docker compose -f docker-compose.yml build --no-cache
           docker push jimloza/factu-front:latest
