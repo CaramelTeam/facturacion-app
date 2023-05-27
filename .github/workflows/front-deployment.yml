@@ -20,3 +20,24 @@ jobs:
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
           IMAGE_TAG="qa-$IMAGE_TAG" docker compose -f docker-compose.yml build
           docker push $DOCKERHUB_USERNAME/factu-front:qa-$IMAGE_TAG
+
+  deploying:
+    needs: build
+    name: Deploying to EC2
+    runs-on: self-hosted
+
+    steps:
+      - name: Login to Dockerhub
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: |
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
+
+      - name: Deploying to EC2
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+
+        run: |
+          cd ~/Docker-front
+          IMAGE_TAG="qa-$IMAGE_TAG" docker compose -f docker-compose.yml up -d
