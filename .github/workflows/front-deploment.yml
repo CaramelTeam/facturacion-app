@@ -17,6 +17,6 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
 
         run: |
-          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
-          IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3000 docker compose -f docker-compose.prod.yml build
+          docker login -u $DOCKERHUB_USERNAME --password-stdin $DOCKERHUB_TOKEN
+          IMAGE_TAG="qa-$IMAGE_TAG" APP_PORT=3001 docker compose -f docker-compose.prod.yml build
           docker push $DOCKERHUB_USERNAME/factuapp-qa-frontend:$IMAGE_TAG
