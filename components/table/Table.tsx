@@ -18,6 +18,7 @@ import Badge from '@mui/material/Badge';
 import { TablePagination } from '@mui/material';
 import { getCookie } from 'cookies-next';
 import axios from 'axios';
+import { BASE_URL } from '@/constants';
 
 function createData(
     cliente: string,
@@ -132,7 +133,7 @@ const CollapsibleTable: FC = (): ReactElement => {
         const fetchData = async () => {
             const data = await axios({
                 method: 'GET',
-                url: `${process.env.NEXT_PUBLIC_API_URL}/invoice/current-month?page=${(page) + 1}&perPage=${rowsPerPage}`,
+                url: `${BASE_URL}/invoice/current-month?page=${(page) + 1}&perPage=${rowsPerPage}`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

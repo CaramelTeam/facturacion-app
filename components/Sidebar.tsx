@@ -86,8 +86,8 @@ export default function Sidebar(props: DrawerProps) {
                 <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
                     EM - Facturacion
                 </ListItem>
-                <ListItem sx={{ ...item, ...itemCategory }}  >
-                    <ListItemIcon onClick={() => handleClick('dashboard')} >
+                <ListItem sx={{ ...item, ...itemCategory }} onClick={() => handleClick('dashboard')}  >
+                    <ListItemIcon >
                         <HomeIcon />
                     </ListItemIcon>
                     <ListItemText>Home</ListItemText>
