@@ -30,7 +30,7 @@ const LoginForm: FC = (): ReactElement => {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setDisabled(true);
-        axios.post(`${process.env.API_URL}/auth/login`, values)
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, values)
             .then((res) => {
                 setCookie('factuToken', res.data.token, {
                     path: '/',

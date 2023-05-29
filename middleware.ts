@@ -16,7 +16,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent, res: Next
         jwt: cookie.value
     }
     if (cookie) {
-        const res = await fetch(`${process.env.API_URL}/auth/validate`,
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/validate`,
             {
                 method: 'POST',
                 body: JSON.stringify(_body),

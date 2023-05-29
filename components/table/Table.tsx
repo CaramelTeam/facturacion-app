@@ -132,7 +132,7 @@ const CollapsibleTable: FC = (): ReactElement => {
         const fetchData = async () => {
             const data = await axios({
                 method: 'GET',
-                url: `${process.env.API_URL}/invoice/current-month?page=${(page) + 1}&perPage=${rowsPerPage}`,
+                url: `${process.env.NEXT_PUBLIC_API_URL}/invoice/current-month?page=${(page) + 1}&perPage=${rowsPerPage}`,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
