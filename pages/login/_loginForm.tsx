@@ -7,6 +7,7 @@ import { Box, Typography, TextField, IconButton, InputAdornment, Button } from '
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import toast, { Toaster } from 'react-hot-toast'
+import { BASE_URL } from '@/constants';
 
 const LoginForm: FC = (): ReactElement => {
     const router = useRouter();
@@ -30,7 +31,7 @@ const LoginForm: FC = (): ReactElement => {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setDisabled(true);
-        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, values)
+        axios.post(`${BASE_URL}/auth/login`, values)
             .then((res) => {
                 setCookie('factuToken', res.data.token, {
                     path: '/',

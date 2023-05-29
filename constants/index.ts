@@ -12,3 +12,5 @@ export const months: string[] = [
     'Noviembre',
     'Diciembre'
 ]
+
+export const BASE_URL: string = 'https://test-api.invoice-go.com/api'
