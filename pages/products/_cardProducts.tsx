@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { IconButton, Grid } from '@mui/material';
+import { IconButton, Grid, Stack } from '@mui/material';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { CardI } from './types/card.interface';
@@ -29,24 +29,28 @@ const CardProduct: FC<CardI> = (
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     {description}
                 </Typography>
-                <Grid container>
-                    <Grid md={6}>
-                        <Typography variant="h6" component="div">
-                            Clave
-                        </Typography>
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                            {productKey}
-                        </Typography>
-                    </Grid>
-                    <Grid md={6} >
+                <Stack direction={'row'} spacing={2} >
+                    <Box
+                        component='div'
+                    >
                         <Typography variant="h6" component="div">
                             Unidad
                         </Typography>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                             {unitName}
                         </Typography>
-                    </Grid>
-                </Grid>
+                    </Box>
+                    <Box
+                        component='div'
+                    >
+                        <Typography variant="h6" component="div">
+                            Clave
+                        </Typography>
+                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                            {productKey}
+                        </Typography>
+                    </Box>
+                </Stack>
             </CardContent>
             <CardActions sx={{
                 display: 'flex',
