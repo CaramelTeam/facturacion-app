@@ -5,7 +5,7 @@ export interface TableProps {
 
 export interface dataBody {
     id: string;
-    cliente: string;
+    owner: OwnerI;
     cancellation_status: string;
     expidition_date: string;
     type: string;
@@ -25,6 +25,9 @@ export interface ItemI {
     productKey: number
 }
 
+export interface OwnerI {
+    legal_name: string,
+}
 // interface ProductsI {
 //     productKey: number
 //     name: string

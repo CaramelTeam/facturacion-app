@@ -2,6 +2,9 @@ export interface CardI {
     id?: number;
     name: string;
     description: string;
-    productKey: number;
-    unitName: string
+    productKey: string;
+    unitName: string;
+    unitKey: string;
+    price: string;
+    handleProduct: () => void;
 }

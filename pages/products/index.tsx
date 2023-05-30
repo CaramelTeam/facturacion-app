@@ -15,6 +15,8 @@ import ProductModal from './_creatProductModal';
 const ProductsView = () => {
 
     const [products, setProducts] = useState<CardI[]>([]);
+    const [page, setPage] = useState(0);
+    const [count, setCount] = useState(0);
     const token = getCookie('factuToken');
     const getProducts = async () => {
         const resp = await axios({
@@ -25,7 +27,12 @@ const ProductsView = () => {
                 Authorization: `Bearer ${token}`
             }
         })
-        setProducts(resp.data)
+        console.log(resp.data);
+
+        const { rows, count } = resp.data
+        setProducts(rows)
+        // const newCount = count / 10;
+        setCount(count)
     }
 
     useEffect(() => {
@@ -82,6 +89,10 @@ const ProductsView = () => {
                                     description={product.description}
                                     name={product.name}
                                     unitName={product.unitName}
+                                    id={product.id}
+                                    price={product.price}
+                                    unitKey={product.unitKey}
+                                    handleProduct={getProducts}
                                 />
 
                             </Grid>

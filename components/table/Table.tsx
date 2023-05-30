@@ -176,7 +176,7 @@ const CollapsibleTable: FC = (): ReactElement => {
                         tableData.map((data, index) => (
                             //     // createData(cliente, cancelacion, fecha, tipo, total, folio, pago),
                             <Row key={index} row={{
-                                cliente: tableData[index].cliente,
+                                cliente: tableData[index].owner.legal_name,
                                 fecha: tableData[index].expidition_date.split(',')[0],
                                 tipo: tableData[index].type === 'I' ? 'Ingreso' : 'Egreso',
                                 total: `$${tableData[index].total}`,
