@@ -10,24 +10,25 @@ import { CardI } from './types/card.interface';
 
 //icons
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import ProductModal from './_creatProductModal';
 
 const ProductsView = () => {
 
     const [products, setProducts] = useState<CardI[]>([]);
+    const token = getCookie('factuToken');
+    const getProducts = async () => {
+        const resp = await axios({
+            method: 'GET',
+            url: `${BASE_URL}/products`,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        })
+        setProducts(resp.data)
+    }
 
     useEffect(() => {
-        const token = getCookie('factuToken');
-        const getProducts = async () => {
-            const resp = await axios({
-                method: 'GET',
-                url: `${BASE_URL}/products`,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            setProducts(resp.data)
-        }
         getProducts()
     }, [])
 
@@ -62,14 +63,8 @@ const ProductsView = () => {
                         justifyContent='end'
 
                     >
-                        <Button
-                            variant='contained'
-                            startIcon={<AddCircleRoundedIcon />}
-                        >
-                            Nuevo
-                        </Button>
+                        <ProductModal handleAddProduct={getProducts} />
                     </Grid>
-                    <Divider />
                     {
                         products.map((product, index) => (
                             <Grid

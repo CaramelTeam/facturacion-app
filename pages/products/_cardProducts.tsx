@@ -59,7 +59,7 @@ const CardProduct: FC<CardI> = (
                 <IconButton>
                     <EditRoundedIcon />
                 </IconButton>
-                <IconButton color='primary' >
+                <IconButton color='primary'>
                     <DeleteRoundedIcon />
                 </IconButton>
             </CardActions>
