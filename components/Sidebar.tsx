@@ -37,7 +37,7 @@ const categories = [
                 active: true,
                 url: 'facturas'
             },
-            { id: 'Clientes', icon: <AccountBoxRoundedIcon />, url: 'clientes' },
+            { id: 'Clientes', icon: <AccountBoxRoundedIcon />, url: 'customers' },
             { id: 'Productos', icon: <Inventory2RoundedIcon />, url: 'productos' },
             // { id: 'Hosting', icon: <PublicIcon /> },
             // { id: 'Functions', icon: <SettingsEthernetIcon /> },
