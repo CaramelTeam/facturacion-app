@@ -6,7 +6,7 @@ import Pagination from '@mui/material/Pagination';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/index';
 import { getCookie } from 'cookies-next';
-import { CardI } from './types/card.interface';
+import { CardI } from '../../types/card.interface';
 
 //icons
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';

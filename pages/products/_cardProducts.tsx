@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { IconButton, Grid, Stack } from '@mui/material';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
-import { CardI } from './types/card.interface';
+import { CardI } from '../../types/card.interface';
 import axios from 'axios';
 import { BASE_URL } from '@/constants';
 import { getCookie } from 'cookies-next';
