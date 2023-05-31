@@ -15,7 +15,7 @@ import { BASE_URL } from '@/constants';
 import { getCookie } from 'cookies-next';
 import toast, { Toaster } from 'react-hot-toast';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import { CardI } from './types/card.interface';
+import { CardI } from '../../types/card.interface';
 
 
 const style = {
