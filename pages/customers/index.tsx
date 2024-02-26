@@ -6,15 +6,13 @@ import axios from 'axios';
 import { BASE_URL } from '../../constants/index';
 import ReutilizableTable from '@/components/customers/CustomerTable';
 const Customer = () => {
-    const tableHeaders = ['Razon Social', 'Email', 'RFC', 'CFDI', 'Codigo Postal', 'Telefono']
+    const tableHeaders = ['Razon Social', 'Email', 'Telefono', 'RFC', 'Actions']
 
     interface dataBodyI {
         razonSocial: string,
         email: string,
-        rfc: string,
-        cfdi: string,
-        cp: string,
         telefono: string
+        rfc: string,
     }
 
     const [tableData, setTableData] = useState<dataBodyI[]>([])
@@ -24,10 +22,14 @@ const Customer = () => {
             razonSocial: 'Jim Loza',
             email: 'jimloza25@gmail.com',
             rfc: 'RFC',
-            cfdi: 'CFDI',
-            cp: 'Codigo Postal',
             telefono: 'Telefono'
-        }
+        },
+        {
+            razonSocial: 'Carlos',
+            email: 'jimloza25@gmail.com',
+            rfc: 'RFC',
+            telefono: 'Telefono'
+        },
 
     ]
 

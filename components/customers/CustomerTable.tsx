@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import CustomerTableMenu from './TableMenu';
 
 function createData(
     name: string,
@@ -63,15 +64,14 @@ export default function CustomerTable({ tableHeaders, tableRow }: { tableHeaders
                     ))} */}
                     {
                         tableRow.map((row, index) => (
-                            <TableRow key={row.razonSocial}>
-                                <TableCell component="th" scope="row">
-                                    {row[index]}
+                            <TableRow key={index}>
+                                <TableCell component="th" scope="row" align='center'>
+                                    {row.razonSocial}
                                 </TableCell>
-                                <TableCell align="right">{row.email}</TableCell>
-                                <TableCell align="right">{row.rfc}</TableCell>
-                                <TableCell align="right">{row.cfdi}</TableCell>
-                                <TableCell align="right">{row.cp}</TableCell>
-                                <TableCell align="right">{row.telefono}</TableCell>
+                                <TableCell align="center">{row.email}</TableCell>
+                                <TableCell align="center">{row.telefono}</TableCell>
+                                <TableCell align="center">{row.rfc}</TableCell>
+                                <TableCell align="center"> <CustomerTableMenu /> </TableCell>
                             </TableRow>
                         ))
                     }
