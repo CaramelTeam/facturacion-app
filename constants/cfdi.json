@@ -1,0 +1,1482 @@
+[
+  {
+    "id": 1,
+    "clave": "G01",
+    "description": "Adquisición de mercancías.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "clave": "G02",
+    "description": "Devoluciones, descuentos o bonificaciones.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "clave": "G03",
+    "description": "Gastos en general.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "clave": "I01",
+    "description": "Construcciones.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "clave": "I02",
+    "description": "Mobiliario y equipo de oficina por inversiones.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "clave": "I03",
+    "description": "Mobiliario y equipo de oficina por inversiones.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "clave": "I03",
+    "description": "Equipo de transporte.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "clave": "I04",
+    "description": "Equipo de computo y accesorios.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "clave": "I05",
+    "description": "Dados, troqueles, moldes, matrices y herramental.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "clave": "I06",
+    "description": "Comunicaciones telefónicas.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "clave": "I07",
+    "description": "Comunicaciones satelitales.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "clave": "I08",
+    "description": "Otra maquinaria y equipo.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "clave": "D01",
+    "description": "Honorarios médicos, dentales y gastos hospitalarios.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "clave": "D02",
+    "description": "Gastos médicos por incapacidad o discapacidad.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "clave": "D03",
+    "description": "Gastos funerales.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "clave": "D04",
+    "description": "Donativos.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "clave": "D05",
+    "description": "Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación).",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "clave": "D06",
+    "description": "Aportaciones voluntarias al SAR.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "clave": "D07",
+    "description": "Primas por seguros de gastos médicos.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "clave": "D08",
+    "description": "Gastos de transportación escolar obligatoria.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "clave": "D09",
+    "description": "Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones.",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "clave": "D10",
+    "description": "Pagos por servicios educativos (colegiaturas).",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "clave": "S01",
+    "description": "Sin efectos fiscales.",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 7,
+        "clave": "610",
+        "description": "Residentes en el Extranjero sin Establecimiento Permanente en México"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 11,
+        "clave": "616",
+        "description": "Sin obligaciones fiscales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "clave": "CP01",
+    "description": "Pagos",
+    "regimen_options": [
+      {
+        "id": 1,
+        "clave": "601",
+        "description": "General de Ley Personas Morales"
+      },
+      {
+        "id": 2,
+        "clave": "603",
+        "description": "Personas Morales con Fines no Lucrativos"
+      },
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      },
+      {
+        "id": 4,
+        "clave": "606",
+        "description": "Arrendamiento"
+      },
+      {
+        "id": 5,
+        "clave": "608",
+        "description": "Demás ingresos"
+      },
+      {
+        "id": 7,
+        "clave": "610",
+        "description": "Residentes en el Extranjero sin Establecimiento Permanente en México"
+      },
+      {
+        "id": 8,
+        "clave": "611",
+        "description": "Ingresos por Dividendos (socios y accionistas)"
+      },
+      {
+        "id": 9,
+        "clave": "612",
+        "description": "Personas Físicas con Actividades Empresariales y Profesionales"
+      },
+      {
+        "id": 10,
+        "clave": "614",
+        "description": "Ingresos por intereses"
+      },
+      {
+        "id": 11,
+        "clave": "616",
+        "description": "Sin obligaciones fiscales"
+      },
+      {
+        "id": 12,
+        "clave": "620",
+        "description": "Sociedades Cooperativas de Producción que optan por diferir sus ingresos"
+      },
+      {
+        "id": 13,
+        "clave": "621",
+        "description": "Incorporación Fiscal"
+      },
+      {
+        "id": 14,
+        "clave": "622",
+        "description": "Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras"
+      },
+      {
+        "id": 15,
+        "clave": "623",
+        "description": "Opcional para Grupos de Sociedades"
+      },
+      {
+        "id": 16,
+        "clave": "624",
+        "description": "Coordinados"
+      },
+      {
+        "id": 18,
+        "clave": "607",
+        "description": "Régimen de Enajenación o Adquisición de Bienes"
+      },
+      {
+        "id": 21,
+        "clave": "615",
+        "description": "Régimen de los ingresos por obtención de premios"
+      },
+      {
+        "id": 22,
+        "clave": "625",
+        "description": "Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas"
+      },
+      {
+        "id": 23,
+        "clave": "626",
+        "description": "Régimen Simplificado de Confianza"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "clave": "CN01",
+    "description": "Nómina",
+    "regimen_options": [
+      {
+        "id": 3,
+        "clave": "605",
+        "description": "Sueldos y Salarios e Ingresos Asimilados a Salarios"
+      }
+    ]
+  }
+]
