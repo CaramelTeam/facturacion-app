@@ -97,6 +97,7 @@ const LoginForm: FC = (): ReactElement => {
                     marginBottom: '50px'
                 }}
                 onChange={handleInputChange}
+                autoComplete='off'
             />
             <TextField
                 id="password"
