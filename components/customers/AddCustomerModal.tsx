@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Input, InputLabel, MenuItem, Modal, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, MenuItem, Modal, Stack, TextField, Typography } from "@mui/material";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import SaveIcon from '@mui/icons-material/Save';
 import AddIcon from '@mui/icons-material/Add';
@@ -26,7 +26,15 @@ const CustomerModal: FC = (): ReactElement => {
     };
 
     const [open, setOpen] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState({
+        legal_name: false,
+        tax_id: false,
+        email: false,
+        preferred_cfdi: false,
+        tax_system: false,
+        zip: false,
+        phone: false
+    });
     const [values, setValues] = React.useState({
         legal_name: '',
         tax_id: '',
@@ -53,16 +61,22 @@ const CustomerModal: FC = (): ReactElement => {
 
 
     useEffect(() => {
-        console.log('Ejecutando y cambiando el estado');
         const taxSystems = CfdiTypes.filter(key => key.clave === values.preferred_cfdi)[0]
         setTaxSystemOptions(taxSystems)
 
     }, [values.preferred_cfdi])
 
-
     const handleClose = (): void => {
         setOpen(false);
-        setError(false);
+        setError({
+            legal_name: false,
+            tax_id: false,
+            email: false,
+            preferred_cfdi: false,
+            tax_system: false,
+            zip: false,
+            phone: false
+        });
         setValues({
             legal_name: '',
             tax_id: '',
@@ -82,10 +96,42 @@ const CustomerModal: FC = (): ReactElement => {
         })
     }
 
-    const handleOnBlurCheckEmail = (e: React.FocusEvent<HTMLInputElement>) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const isValidEmail: boolean = re.test(e.target.value);
-        setError(!isValidEmail);
+    const validateDataInputs = (inputName: string, inputValue: string) => {
+        switch (inputName) {
+            case 'tax_id':
+                const re_rfc = /^(?=\S+$)[A-Za-z0-9]{12,13}$/;
+                const isValidRfc: boolean = re_rfc.test(inputValue);
+                return isValidRfc;
+
+            case 'email':
+                const re_email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const isValidEmail: boolean = re_email.test(inputValue);
+                return isValidEmail;
+            case 'legal_name':
+                const re_legalName = /^[a-zA-Z\s]{6,}$/;
+                const isValidLegalName: boolean = re_legalName.test(inputValue.trim())
+                return isValidLegalName;
+            case 'phone':
+                const re_phone = /^\d{10}$/;
+                const isValidPhone: boolean = re_phone.test(inputValue.trim())
+                return isValidPhone;
+            case 'zip':
+                const re_zip = /^\d{5}$/;
+                const isZip: boolean = re_zip.test(inputValue.trim())
+                return isZip;
+            default:
+                return false
+        }
+
+    }
+
+
+    const handleOnblurInputs = (e: React.FocusEvent<HTMLInputElement>) => {
+        const hasError = validateDataInputs(e.target.name, e.target.value);
+        setError({
+            ...error,
+            [e.target?.name]: !hasError
+        })
     }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -107,13 +153,6 @@ const CustomerModal: FC = (): ReactElement => {
         //     console.log('error', error);
         // }
     }
-
-    // const handleOnBlurCheckRFC = (e: React.FocusEvent<HTMLInputElement>) => {
-
-    //     console.log('focus', e.target.value);
-    //     console.log('focus', e);
-
-    // }
 
     return (
         <>
@@ -143,14 +182,21 @@ const CustomerModal: FC = (): ReactElement => {
                         sx={{ '& > :not(style)': { mt: 2 } }}
                         onSubmit={handleSubmit}
 
+
                     // sx={{ marginTop: 2 }}
                     >
                         <TextField
                             id="legal_name"
                             name="legal_name"
                             label="Razon Social"
+                            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                e.target.value = e.target.value.toUpperCase()
+                            }}
                             autoComplete="off"
                             onChange={handleInputChange}
+                            onBlur={handleOnblurInputs}
+                            error={error.legal_name}
+                            helperText={error.legal_name ? 'Razon Social invalida' : ''}
                             required
                             fullWidth
                         />
@@ -159,9 +205,14 @@ const CustomerModal: FC = (): ReactElement => {
                             name="tax_id"
                             label="RFC"
                             type="text"
+                            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                e.target.value = e.target.value.toUpperCase()
+                            }}
                             autoComplete="off"
                             onChange={handleInputChange}
-                            // onBlur={handleFocusCheckRFC}
+                            onBlur={handleOnblurInputs}
+                            error={error.tax_id}
+                            helperText={error.tax_id ? 'RFC invalido' : ''}
                             required
                             fullWidth
                         />
@@ -170,11 +221,11 @@ const CustomerModal: FC = (): ReactElement => {
                             name="email"
                             type="email"
                             label="Email"
-                            error={error}
+                            error={error.email}
                             autoComplete="off"
                             onChange={handleInputChange}
-                            onBlur={handleOnBlurCheckEmail}
-                            helperText={error ? 'Email invalido' : ''}
+                            onBlur={handleOnblurInputs}
+                            helperText={error.email ? 'Email invalido' : ''}
                             required
                             fullWidth
                         />
@@ -189,6 +240,9 @@ const CustomerModal: FC = (): ReactElement => {
                             label="Telefono"
                             autoComplete="off"
                             onChange={handleInputChange}
+                            onBlur={handleOnblurInputs}
+                            error={error.phone}
+                            helperText={error.phone ? 'Ingresa un numero de telefono valido' : ''}
                             fullWidth
                         />
                         <TextField
@@ -239,6 +293,9 @@ const CustomerModal: FC = (): ReactElement => {
                                     onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                                         e.target.value = e.target.value.replace(/[^0-9]/g, '')
                                     }}
+                                    onBlur={handleOnblurInputs}
+                                    error={error.zip}
+                                    helperText={error.zip ? 'Codigo postal invalido' : ''}
                                     inputProps={{ maxLength: 5 }}
                                     required
                                 />
