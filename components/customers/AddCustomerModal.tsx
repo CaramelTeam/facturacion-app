@@ -1,4 +1,4 @@
-import { Box, Button, MenuItem, Modal, Stack, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, CircularProgress, MenuItem, Modal, Stack, TextField, Typography } from "@mui/material";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import SaveIcon from '@mui/icons-material/Save';
 import AddIcon from '@mui/icons-material/Add';
@@ -9,8 +9,36 @@ import axios from "axios";
 import { BASE_URL } from "@/constants";
 import RegimenTypes from '../../constants/regimen.json'
 import CfdiTypes from '../../constants/cfdi.json'
+import { useAddCustomerMutation, useGetCustomersQuery } from "@/redux/services/customerApi";
+import toast, { Toaster } from "react-hot-toast";
+
+export type CustomerType = {
+    legal_name: string,
+    tax_id: string,
+    email: string,
+    phone?: string,
+    preferred_cfdi: string,
+    tax_system: string,
+    zip: string,
+}
+
+type regimenOptions = {
+    id: number,
+    clave: string
+    description: string
+}
+export type TaxSystemOption = {
+    id: number
+    clave: string
+    description: string
+    regimen_options: regimenOptions[]
+}
+
 
 const CustomerModal: FC = (): ReactElement => {
+
+    const [addCustomer, { isLoading, isError, isSuccess }] = useAddCustomerMutation();
+    const { refetch } = useGetCustomersQuery({ page: 1, perPage: 10 });
 
     const style = {
         position: 'absolute' as 'absolute',
@@ -33,7 +61,8 @@ const CustomerModal: FC = (): ReactElement => {
         preferred_cfdi: false,
         tax_system: false,
         zip: false,
-        phone: false
+        phone: false,
+        queryError: false,
     });
     const [values, setValues] = React.useState({
         legal_name: '',
@@ -45,17 +74,6 @@ const CustomerModal: FC = (): ReactElement => {
         zip: '',
     })
 
-    type regimenOptions = {
-        id: number,
-        clave: string
-        description: string
-    }
-    type TaxSystemOption = {
-        id: number
-        clave: string
-        description: string
-        regimen_options: regimenOptions[]
-    }
 
     const [taxSystemOptions, setTaxSystemOptions] = useState<TaxSystemOption>()
 
@@ -75,7 +93,8 @@ const CustomerModal: FC = (): ReactElement => {
             preferred_cfdi: false,
             tax_system: false,
             zip: false,
-            phone: false
+            phone: false,
+            queryError: false,
         });
         setValues({
             legal_name: '',
@@ -108,7 +127,7 @@ const CustomerModal: FC = (): ReactElement => {
                 const isValidEmail: boolean = re_email.test(inputValue);
                 return isValidEmail;
             case 'legal_name':
-                const re_legalName = /^[a-zA-Z\s]{6,}$/;
+                const re_legalName = /^[a-zA-Z\s]{2,}$/;
                 const isValidLegalName: boolean = re_legalName.test(inputValue.trim())
                 return isValidLegalName;
             case 'phone':
@@ -133,29 +152,36 @@ const CustomerModal: FC = (): ReactElement => {
             [e.target?.name]: !hasError
         })
     }
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('submit', values);
-        const token = getCookie('factuToken');
+        try {
+            await addCustomer(values).unwrap();
+            if (!isError) {
+                toast.success('Cliente agregado correctamente', {
+                    duration: 6000,
+                    position: 'top-right',
+                    icon: '✔',
+                    style: {
+                        backgroundColor: '#161B22',
+                        color: '#fff',
+                    }
+                })
+                handleClose();
+                refetch();
+            }
 
-        // try {
-        //     await axios({
-        //         method: 'post',
-        //         url: `${BASE_URL}/customer`,
-        //         data: values,
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             Authorization: `Bearer ${token}`
-        //         }
-        //     })
-        // } catch (error) {
-        //     console.log('error', error);
-        // }
+        } catch (err) {
+            console.log("Error: ", err)
+            setError({
+                ...error,
+                queryError: true
+            })
+        }
     }
 
     return (
         <>
+            <Toaster />
             <Button
                 variant="contained"
                 color="primary"
@@ -226,7 +252,6 @@ const CustomerModal: FC = (): ReactElement => {
                             onChange={handleInputChange}
                             onBlur={handleOnblurInputs}
                             helperText={error.email ? 'Email invalido' : ''}
-                            required
                             fullWidth
                         />
                         <TextField
@@ -303,13 +328,29 @@ const CustomerModal: FC = (): ReactElement => {
                             </Stack>
 
                         }
+                        {
+                            error.queryError &&
+                            <Alert severity="error">Error al guardar el cliente</Alert>
+                        }
+                        {
+                            isLoading ?
+                                <Box
+                                    component='div'
+                                    textAlign='center'
+                                >
+                                    <CircularProgress color="primary" size={30} sx={{ marginTop: 2 }} />
+                                </Box> :
+                                <>
+                                    <Button variant="contained" startIcon={<SaveIcon />} fullWidth type="submit" disabled={values.preferred_cfdi ? false : true} >
+                                        Guardar
+                                    </Button>
+                                    <Button variant="outlined" fullWidth onClick={handleClose}>
+                                        Cancelar
+                                    </Button>
+                                </>
+                        }
 
-                        <Button variant="contained" startIcon={<SaveIcon />} fullWidth type="submit" disabled={values.preferred_cfdi ? false : true} >
-                            Guardar
-                        </Button>
-                        <Button variant="outlined" fullWidth onClick={handleClose}>
-                            Cancelar
-                        </Button>
+
                     </Box>
 
                 </Box>

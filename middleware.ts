@@ -52,5 +52,5 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent, res: Next
 }
 
 export const config = {
-    matcher: ['/dashboard'],
+    matcher: ['/dashboard', '/customers', '/customers/edit/[id]', '/invoices', '/invoices/edit/[id]', '/products', '/products/edit/[id]', '/settings', '/settings/edit/[id]']
 }

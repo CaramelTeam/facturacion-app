@@ -14,6 +14,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 import ReceiptRoundedIcon from '@mui/icons-material/ReceiptRounded';
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
+import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import { useRouter } from 'next/router';
 
 
@@ -27,8 +28,9 @@ const categories = [
                 id: 'Facturas',
                 icon: <ReceiptRoundedIcon />,
                 active: true,
-                url: 'facturas'
+                url: 'invoices'
             },
+            { id: 'Cotizaciones', icon: <RequestQuoteIcon />, url: 'quotations' },
             { id: 'Clientes', icon: <AccountBoxRoundedIcon />, url: 'customers' },
             { id: 'Productos', icon: <Inventory2RoundedIcon />, url: 'products' },
             // { id: 'Hosting', icon: <PublicIcon /> },

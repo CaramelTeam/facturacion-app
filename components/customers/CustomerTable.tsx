@@ -8,10 +8,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CustomerTableMenu from './TableMenu';
 import { TablePagination } from '@mui/material';
-import { getCookie } from 'cookies-next';
-import { BASE_URL } from '@/constants';
-import axios from 'axios';
 import { TableSkeleton } from './TableSkeleton';
+
+import { useGetCustomersQuery } from '@/redux/services/customerApi'
+import { NoData } from '../common/NoData';
+import { InternalServerError } from '../common/InternalServerError';
+import { ErrorI } from '@/types/error/error.interface';
 
 interface dataBodyI {
     id: string,
@@ -21,7 +23,7 @@ interface dataBodyI {
     tax_id: string,
 }
 
-export interface customerDataI {
+export interface CustomerDataI {
     data: dataBodyI[],
     metadata: {
         page: number,
@@ -29,43 +31,32 @@ export interface customerDataI {
     }
 }
 
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number,
-) {
-    return { name, calories, fat, carbs, protein };
-}
+
+
 
 export default function CustomerTable() {
-    // console.log("Table rows:", tableRow.map(row => console.log("rowin", row.razonSocial)));
-
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [tableData, setTableData] = useState<customerDataI>()
-    const [loading, setLoading] = useState(true)
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const { data, error, isLoading, isFetching } = useGetCustomersQuery({ page: page + 1, perPage: rowsPerPage });
+    console.log("Datos: ", {
+        data,
+        error,
+        isLoading,
+        isFetching
+    });
 
-    useEffect((): any => {
-        const token = getCookie('token')
-        const fetchData = async () => {
-            const data = await axios({
-                method: 'GET',
-                url: `${BASE_URL}/customer?page=1&perPage=1`,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            setTableData(data.data)
-            setCount(data.data.metadata.total)
-            setLoading(false)
+    // if ((error as ErrorI)?.status === 500) {
+    //     return <InternalServerError />
+    // }
+    if (error) {
+        return <InternalServerError />
+    }
 
-        }
-        fetchData()
-    }, [rowsPerPage, page])
+    // if (!data?.data.length) {
+    //     return <NoData />
+    // }
+
+
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRowsPerPage(parseInt(event.target.value, 10));
@@ -76,7 +67,6 @@ export default function CustomerTable() {
         setPage(newPage);
     }
 
-
     return (
         <TableContainer
             component={Paper}
@@ -84,16 +74,12 @@ export default function CustomerTable() {
                 backgroundColor: 'background.default',
                 borderBottomRightRadius: 15,
                 borderBottomLeftRadius: 15,
+                boxShadow: 15,
             }}
         >
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        {/* {
-                            tableHeaders.map((header, index) => (
-                                <TableCell align='center' key={index}>{header}</TableCell>
-                            ))
-                        } */}
                         <TableCell component="th" scope="row" align='center'>
                             Razon Social
                         </TableCell>
@@ -105,10 +91,10 @@ export default function CustomerTable() {
                 </TableHead>
                 <TableBody>
                     {
-                        loading ?
+                        isLoading ?
                             <TableSkeleton />
                             :
-                            tableData?.data.map((row) => (
+                            data?.data.map((row) => (
                                 <TableRow key={row.id}>
                                     <TableCell component="th" scope="row" align='center'>
                                         {row.legal_name}
@@ -116,7 +102,7 @@ export default function CustomerTable() {
                                     <TableCell align="right">{row.tax_id}</TableCell>
                                     <TableCell align="right">{row.email}</TableCell>
                                     <TableCell align="right">{row.phone}</TableCell>
-                                    <TableCell align="right"> <CustomerTableMenu /> </TableCell>
+                                    <TableCell align="right"> <CustomerTableMenu id={row.id} /> </TableCell>
                                 </TableRow>
                             ))
                     }
@@ -127,7 +113,7 @@ export default function CustomerTable() {
                 rowsPerPage={rowsPerPage}
                 component="div"
                 rowsPerPageOptions={[10, 20, 30, 40, 50]}
-                count={count}
+                count={data?.metadata.total || 0}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 page={page}

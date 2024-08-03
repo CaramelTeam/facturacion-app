@@ -3,12 +3,10 @@ import Layout from '@/layouts/Layout';
 import { Box, Grid, Typography } from '@mui/material';
 import CustomerReutilizableTable from '@/components/customers/CustomerTable';
 import CustomerModal from '@/components/customers/AddCustomerModal';
-
 const Customer = () => {
-
     return (
         <Layout title='Customer' >
-            <Grid container alignItems={'center'} justifyContent={'center'} marginTop={10} >
+            <Grid container alignItems={'center'} justifyContent={'center'} marginTop={1} >
 
                 <Grid item md={12}>
 
@@ -33,12 +31,7 @@ const Customer = () => {
                     </Box>
                 </Grid>
                 <Grid item md={12} marginX={5} marginY={2}>
-                    <Box
-                        component={'div'}
-                        boxShadow={10}
-                    >
-                        <CustomerReutilizableTable />
-                    </Box>
+                    <CustomerReutilizableTable />
                 </Grid>
             </Grid>
 
