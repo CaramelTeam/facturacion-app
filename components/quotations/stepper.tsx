@@ -37,16 +37,22 @@ export default function VerticalLinearStepper({ activeStep }: { activeStep: numb
                 {steps.map((step, index) => (
                     <Step key={step.label} >
                         <StepLabel
-                            optional={
-                                index === 2 ? (
-                                    <Typography variant="caption">Last step</Typography>
-                                ) : null
-                            }
+                        optional={
+                            index === 2 ? (
+                                <Typography variant="caption">Paso final</Typography>
+                            ) : null
+                        }
                         >
                             {step.label}
                         </StepLabel>
                         <StepContent>
-                            <Typography>{step.description}</Typography>
+                            <Paper
+                                square
+                                elevation={0}
+                                sx={{ p: 3 }}
+                            >
+                                <Typography>{step.description}</Typography>
+                            </Paper>
 
                         </StepContent>
 

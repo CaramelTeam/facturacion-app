@@ -3,12 +3,42 @@ import VerticalLinearStepper from '@/components/quotations/stepper';
 import Layout from '@/layouts/Layout'
 import { Box, Button, Grid } from '@mui/material';
 import { SelectCustomerQuotation } from '@/components/quotations/SelectCustomerQuotation';
+import { SelectProductQuotation } from '@/components/quotations/SelectProductQuotation';
+
+export interface CustomerQuiotationType {
+    id: string;
+    legal_name: string;
+    tax_id: string;
+    zip: string;
+    tax_system: string;
+    preferred_cfdi: string;
+}
 const index = () => {
 
     const [Step, setStep] = useState<number>(0)
+    const [customerInfo, setCustomerInfo] = useState({
+        id: '',
+        legal_name: '',
+        tax_id: '',
+        zip: '',
+        tax_system: '',
+        preferred_cfdi: ''
+    })
+
+    const [productInfo, setProductInfo] = useState({
+        id: 0,
+        name: '',
+        description: '',
+        price: 0,
+        productKey: 0,
+        unitKey: '',
+        unitName: '',
+    })
 
     const handleNext = () => {
         setStep((prevActiveStep) => prevActiveStep + 1);
+        console.log('Customer info: ', customerInfo);
+
     }
 
     const handleBack = () => {
@@ -33,7 +63,9 @@ const index = () => {
             >
                 <Grid
                     item
-                    md={2}
+                    // md={2}
+                    md={4}
+                    lg={2}
                 >
                     <VerticalLinearStepper activeStep={Step} />
                     <Box sx={{ mb: 2 }}>
@@ -42,7 +74,7 @@ const index = () => {
                                 variant="contained"
                                 sx={{ mt: 1, mr: 1 }}
                                 onClick={handleNext}
-                                disabled={Step >= 3}
+                                disabled={Step >= 3 || customerInfo.legal_name === ''}
                             >
                                 Siguiente
                             </Button>
@@ -59,24 +91,36 @@ const index = () => {
                 </Grid>
                 <Grid
                     item
-                    md={10}
+                    // md={10}
+                    md={8}
+                    lg={10}
                 >
                     <Box
                         component='div'
+                        sx={{
+                            backgroundColor: 'background.paper',
+                            height: '500px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                        }}
                     >
                         {
                             Step === 0 && (
-                                <Box>
-                                    <h1>Step 1</h1>
-                                    <SelectCustomerQuotation />
-                                </Box>
+
+                                <SelectCustomerQuotation
+                                    setCustomerInfo={setCustomerInfo}
+                                    customerInfo={customerInfo}
+                                />
+
                             )
                         }
                         {
                             Step === 1 && (
-                                <Box>
-                                    <h1>Step 2</h1>
-                                </Box>
+                                <SelectProductQuotation
+                                    setProductInfo={setProductInfo}
+                                    productInfo={productInfo}
+                                />
                             )
                         }
                         {

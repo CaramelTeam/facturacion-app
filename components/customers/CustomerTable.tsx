@@ -19,8 +19,11 @@ interface dataBodyI {
     id: string,
     legal_name: string,
     email: string,
-    phone: string
+    phone: string,
     tax_id: string,
+    zip: string,
+    tax_system: string,
+    preferred_cfdi: string,
 }
 
 export interface CustomerDataI {
